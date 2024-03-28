@@ -1,26 +1,50 @@
+import React, { useEffect } from 'react'
+import Register from './Components/Register'
+import Login from './Components/Login'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './Components/Home'
+import Profile from './Components/Profile'
+import axios from 'axios'
+// import './Style.scss'
 
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import './App.css';
-import Register from './Components/Register/Register';
-import Login from './Components/LogIn/Login';
-import Home from './Components/HomePage/Home';
-import OTP from './Components/OTP';
+const App = () => {
 
-function App() {
+
+  const handleGetProfile = async () => {
+
+    try {
+
+      const token = localStorage.getItem('token')
+
+      const response = await axios.get('https://interview-plus.onrender.com/api/protected',
+        { headers: { 'x-access-token': token } }
+      )
+
+      console.log('getProfile response', response)
+    }
+    catch (err) {
+      console.error(err);
+    }
+
+  }
+
+  useEffect(() => {
+    handleGetProfile()
+  }, [])
+
+
   return (
-    <>
+    <div>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Login />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/otp' element={<OTP />} />
+          <Route index  element={<Register/>}/>
+          <Route path='/login' element={<Login />}/>
+          <Route  path='/home' element={<Home/>}/>
+          <Route  path='/profile' element={<Profile/>}/>
         </Routes>
       </BrowserRouter>
-
-    </>
-
-  );
+    </div>
+  )
 }
 
-export default App;
+export default App

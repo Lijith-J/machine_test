@@ -1,0 +1,97 @@
+//Log IN Page
+
+
+.login-main {
+    height: 100vh;
+
+    input {
+        outline: none;
+    }
+
+    .login-button {
+        border: none;
+        background-color: rgb(33, 150, 189);
+    }
+}
+
+// End oF Log IN _______________________________________________________________________________________________________
+
+
+
+
+
+
+
+//Register Page
+
+.register-main-div {
+    height: 100vh;
+
+    input {
+        outline: none;
+    }
+
+    .register-button {
+        border: none;
+        background-color: rgb(33, 150, 189);
+    }
+}
+
+// End of Register______________________________________________________________________________________________________
+
+
+
+
+
+
+
+//HomePage
+
+.items-main {
+    // background-color: yellow;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    justify-items: center;
+    align-content: center;
+}
+
+// _______________________________________________________________________________
+
+
+
+
+// Profile Page
+
+.profile-main-div {
+    height: 100vh;
+
+    form {
+
+        input {
+            outline: none;
+        }
+
+        div {
+            & :nth-child(1) {
+                border: none;
+                background-color: rgb(33, 150, 189);
+                color: white;
+                width: 45%;
+                border-radius: 6px;
+
+                padding: 10px;
+            }
+
+            & :nth-child(2) {
+                border: none;
+                background-color: rgb(213, 60, 60);
+                color: white;
+                width: 45%;
+                border-radius: 6px;
+
+                padding: 10px;
+            }
+        }
+    }
+}
